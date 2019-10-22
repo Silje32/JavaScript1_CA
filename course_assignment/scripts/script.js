@@ -4,9 +4,19 @@
 function makeCards(json) {
     var cardArray = json.cards;
 // get your cards array from the json object and then loop through them.
-
-console.log()
+cardArray.forEach(function(card) {
+console.log(card.name)
+output += `
+  <div class =""col-sm-12">
+    <h4> Card Name: ${card.name}<h4>
+    <img> Image: ${card.imageURL}</img>
+    <a href> ID: ${card.id}</a href>
+  </div>
+`;
+});
+document.getElementById('output').innerHTML = output;
 }
+
 
 fetch('https://api.magicthegathering.io/v1/cards')
 // the first .then convert the result to JSON format.

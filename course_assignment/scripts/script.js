@@ -7,11 +7,12 @@ function makeCards(json) {
 cardArray.forEach(function(card) {
 console.log(card.name)
 output += `
-  <div class =""col-sm-12">
-    <h4> Card Name: ${card.name}<h4>
-    <img> Image: ${card.imageURL}</img>
-    <a href> ID: ${card.id}</a href>
-  </div>
+  <div class = 'col-sm-12'>id=${cards.id}'> </div>
+  <div class = 'col-sm-4'> </div>
+  <div class = 'card-container' </div>
+  <h4> Card Name: ${card.name}> <h4>
+  <img scr = '${card.imageURL}'> </img>
+  <a href ='card-specific.html?id=${card.id}'> </a href>
 `;
 });
 document.getElementById('output').innerHTML = output;

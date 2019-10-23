@@ -3,18 +3,19 @@
 
 function makeCards(json) {
     var cardArray = json.cards;
+
+    let output = "";
 // get your cards array from the json object and then loop through them.
 cardArray.forEach(function(card) {
 console.log(card.name)
-output += `
-  <div class = 'col-sm-12'>id=${cards.id}'> </div>
-  <div class = 'col-sm-4'> </div>
-  <div class = 'card-container' </div>
-  <h4> Card Name: ${card.name}> <h4>
-  <img scr = '${card.imageURL}'> </img>
-  <a href ='card-specific.html?id=${card.id}'> </a href>
-`;
-});
+output += ` <div class = "col-sm-4">
+            <div class = "card-container">
+            <h4> Card Name: ${card.name}> <h4>
+            <img scr = "${card.imageURL}">
+            <a href = "card-specific.html?id=${card.id}" class="btn btn-success">View More</a>
+            </div>
+            </div> `;
+})
 document.getElementById('output').innerHTML = output;
 }
 

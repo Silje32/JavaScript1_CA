@@ -33,3 +33,35 @@ fetch('https://api.magicthegathering.io/v1/cards')
 		console.log(json);
 		makeCards(json);
 	})
+
+
+// find the button and put it in a variable
+var mySearchBtn = document.querySelector('#searchButton');
+// this is the same as var mySearchBtn = document.getElementById('searchButton');
+
+
+// when the button is clicked, call a function
+mySearchBtn.addEventListener('click', search); // search is the function we will call
+
+function search() {
+	//1. get the value from the search box and put it in a variable.
+  var mySearch = document.querySelector('#search');
+  var searchValue = mySearch.value
+
+	//2. do the same API call as above and put the results in a variable as an array.
+fetch('https://api.magicthegathering.io/v1/cards')
+  	// the first .then convert the result to JSON format.
+  	 .then(function(response) {
+  		return response.json ()
+  	})
+  	// the second .then calls the function.
+  	.then(function(json) {
+  		console.log(json);
+  		makeCards(json);
+  	})
+  }
+  var cardArray = json.cards;
+
+
+	//3. filter the array and get only the cards whose name begins with the value in the search box.
+	cardArray.filter

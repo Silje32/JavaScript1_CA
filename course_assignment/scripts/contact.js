@@ -10,6 +10,8 @@ function checkName(name) {
      return false;
   }
 }
+
+
 function checkLastName(lastname) {
   var myLastName = /(\w+)/;
   if (lastname.match(myLastName)) {
@@ -20,34 +22,39 @@ function checkLastName(lastname) {
   }
 }
 
+
 //Validating that the phone number is correct.
-function checkPhone(phone) {
-  var myPhone = /^d\d\d\d\d\d\d\d\d\d$/;
-  if (phone.match(myPhone)) {
+function validatePhone(phone) {
+  var phonePattern = /^\d{3}\ \d{3}\ \d{4}\$/;
+  if (phone.match(phonePattern)) {
      return true;
   }  else {
      alert( "This field cannot be blank" );
      return false;
   }
 
+
 //Validating that the e-mail adress are correct.
-function checkEmail(email) {
-  var myEmail = /\w+\.\w+\/;
-  if (email.match(myEmail)) {
+function validateEmail(email) {
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  if (email.match(emailPattern)) {
      return true;
-  }) else {
+  }  else {
      alert( "This field cannot be blank" );
      return false;
+     console.log(validateEmail('silje24@yahoo.com'));
   }
 }
+
+
 
 // when the submit button is clicked, call a function
 mySubmitBtn.addEventListener('click', valid);
 
 function Valid () {
-  if  {
+  if (Valid) {
      return error;
-  }) else {
+  }  else {
      alert( "If the value of the textbox is valid, hide the error message" );
      return false;
   }

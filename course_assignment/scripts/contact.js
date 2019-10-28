@@ -1,61 +1,39 @@
 // refer to question 4 before development starts for scope document
 
 //Validating that "name" and "last name" inputs are not empty.
-function checkName(name) {
-  var myName = /(\w+)/;
-  if (name.match(myName)) {
-     return true;
+function validateWholeName(name) {
+  var namePattern = /(\w+)/s(\w+)/;
+  if (name.match(namePattern)) {
+     result.innerHTML = 'This field cannot be blank';
   }  else {
-     alert( "This field cannot be blank" );
-     return false;
-  }
+     result.innerHTML = 'The last name is <strong>valid!</strong>';
+    }
 }
-
-
-function checkLastName(lastname) {
-  var myLastName = /(\w+)/;
-  if (lastname.match(myLastName)) {
-     return true;
-  }  else {
-     alert( "This field cannot be blank" );
-     return false;
-  }
-}
-
 
 //Validating that the phone number is correct.
 function validatePhone(phone) {
   var phonePattern = /^\d{3}\ \d{3}\ \d{4}\$/;
   if (phone.match(phonePattern)) {
-     return true;
+     result.innerHTML = 'Please enter a correct phone number' ;
   }  else {
-     alert( "This field cannot be blank" );
-     return false;
+     result.innerHTML = 'The phone number is <strong>valid!</strong>';
   }
-
+}
 
 //Validating that the e-mail adress are correct.
 function validateEmail(email) {
   var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   if (email.match(emailPattern)) {
-     return true;
+     result.innerHTML = 'Please enter a correct e-mail address';
   }  else {
-     alert( "This field cannot be blank" );
-     return false;
-     console.log(validateEmail('silje24@yahoo.com'));
+     result.innerHTML = 'The e-mail adress is <strong>valid!</strong>';
   }
 }
 
-
-
-// when the submit button is clicked, call a function
-mySubmitBtn.addEventListener('click', valid);
-
-function Valid () {
-  if (Valid) {
-     return error;
-  }  else {
-     alert( "If the value of the textbox is valid, hide the error message" );
-     return false;
-  }
-}
+//the function will be called inside the form's eventListener
+  var form = document.querySelector('form');
+  form.addEventListener('submit', function() {
+      validateWholeName(this.name.value);
+      validatePhone(this.phone.value);
+      validateEmail(this.email.value);
+});

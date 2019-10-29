@@ -24,11 +24,13 @@ function validateLastName(lastname) {
 }
 
 
- //Validating that the phone number is correct.
+//Validating that the phone number is correct.
  function validatePhone(phone) {
 	var phoneError = document.querySelector("#phoneError");
 	var phonePattern = /^\d{3}\ \d{3}\ \d{4}$/;
 
+/* The exclamation mark checks if the pattern doesn't match so if it doesn't
+   match display the error otherwise hide the error */
 	if (!phone.match(phonePattern)) {
 		phoneError.style.display = "block";
 	}
@@ -43,6 +45,8 @@ function validateLastName(lastname) {
 	 var emailError = document.querySelector("#emailError");
    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+/* The exclamation mark checks if the pattern doesn't match so if it doesn't
+	 match display the error otherwise hide the error */
 	 if (!email.match(emailPattern)) {
 		 emailError.style.display = "block";
 	 }
@@ -52,7 +56,7 @@ function validateLastName(lastname) {
  }
 
 
- //the function will be called inside the form's eventListener
+ //The function will be called inside the form's eventListener
  var form = document.querySelector('form');
 
  form.addEventListener('submit', function(event) {

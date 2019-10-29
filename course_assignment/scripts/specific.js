@@ -21,4 +21,24 @@ fetch(url)
 function makeTheCard(json) {
   console.log(json);
 
+  var cardDetails = document.querySelector("#cardDetails");
+  var cardImage = document.querySelector("#cardImage");
+  let output = "";
+
+  output += `<div class="col-sm-3">
+        <img src="${json.imageURL}">
+        <div class="col-sm-9">
+          <h2>${json.name}</h2>
+          <div="${json.text}">
+          <div="${json.rarity}">
+          <div="${json.color}">
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>`;
+
+document.getElementById('cardImage').innerHTML = output;
+document.getElementById('cardDetails').innerHTML = output;
+
 }

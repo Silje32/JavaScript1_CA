@@ -7,11 +7,10 @@ function getQueryStringValue(key) {
 // variable for the id
 var id = getQueryStringValue("id");
 
-if(!id) {
-  alert("No ID set in URL");
-}
+console.log("id", id)
 
 var url = "https://api.magicthegathering.io/v1/cards/" + id;
+
 
 fetch(url)
   .then(function (response) {
@@ -25,16 +24,24 @@ fetch(url)
 function makeTheCard(json) {
   console.log(json);
 
-  var cardDetails = document.querySelector("#cardDetails");
-  var cardImage = document.querySelector("#cardImage");
+// We need to get the card from the json first
+  var card = json.card;
 
-  let imageOutput = `<img src="${json.imageURL}">`;
-  let detailsOutput = `<h2>${json.name}</h2>
-                       <div> <b>About:</b> =${json.text}</div>
-                       <div> <b>Rarity</b> =${json.text}</div>
-                       <div> <b>Color</b> =${json.color}</div>`;
+  // this will be the image content
+  let imageOutput = "No image";
+
+  // if there is an imageUrl, replace the image content with this
+  if(card.imageUrl) {
+    imageOutput = `<img src="${card.imageUrl}">`;
+  }
+
+  let detailsOutput = `<h2>${card.name}</h2>
+                       <div> <b>About:</b> =${card.text}</div>
+                       <div> <b>Rarity</b> =${card.rarity}</div>
+                       <div> <b>Color</b> =${card.colors.toString()}</div>`;  //toString() to print it out
 
   document.getElementById('cardImage').innerHTML = imageOutput;
   document.getElementById('cardDetails').innerHTML = detailsOutput;
+
 
 }

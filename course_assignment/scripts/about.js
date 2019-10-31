@@ -17,3 +17,6 @@ swapText(text);
 
 var moreInfoTrigger = document.querySelector('#moreInfoTrigger');
 moreInfoTrigger.addEventListener('click');
+
+var moreInfoContent = document.querySelector('#moreInfoContent');
+moreInfoContent.style.display = "none";

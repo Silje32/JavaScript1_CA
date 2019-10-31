@@ -13,10 +13,18 @@ function swapText(text){
   var replaceMagic = text.replace(/magic/ig, "something");
   return replaceMagic;
 }
-swapText(text);
-
-var moreInfoTrigger = document.querySelector('#moreInfoTrigger');
-moreInfoTrigger.addEventListener('click');
 
 var moreInfoContent = document.querySelector('#moreInfoContent');
-moreInfoContent.style.display = "none";
+
+var moreInfoTrigger = document.querySelector('#moreInfoTrigger');
+
+moreInfoTrigger.addEventListener('click', function() {
+
+  if(moreInfoContent.style.display === "none") {
+    moreInfoContent.style.display = "block";
+  }
+  else {
+    moreInfoContent.style.display = "none";
+  }
+
+});

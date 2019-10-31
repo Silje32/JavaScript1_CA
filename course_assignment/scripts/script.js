@@ -46,7 +46,7 @@ mySearchBtn.addEventListener('click', search); // search is the function we will
 function search() {
 	//1. get the value from the search box and put it in a variable.
 	var mySearch = document.querySelector('#search');
-	  
+
   	var searchValue = mySearch.value
 
 	//2. do the same API call as above and put the results in a variable as an array.
@@ -84,7 +84,11 @@ function makeFilteredCards(json, searchValue) {
 
 	console.log(filteredCards)
 
-	//4. loop over filteredCards and create the html like above 
+	//4. loop over filteredCards and create the html like above
 
-}
+   filteredCards.forEach(function(card) {
+		 if(card.name.toLowerCase().startsWith(searchValue.toLowerCase())) {
+ 			return true
+ 		}
 
+})

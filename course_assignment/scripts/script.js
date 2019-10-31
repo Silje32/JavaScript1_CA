@@ -14,7 +14,7 @@ function makeCards(json) {
 		output += `<div class="col-sm-4">
 					<div class="card-container">
 						<h4>${card.name}</h4>
-						<img src="${card.imageURL}">
+						<img src="${card.imageUrl}">
 						<a href="card-specific.html?id=${card.id}" class="btn btn-success">View More</a>
 					</div>
 				</div>`;
@@ -85,10 +85,25 @@ function makeFilteredCards(json, searchValue) {
 	console.log(filteredCards)
 
 	//4. loop over filteredCards and create the html like above
+	filteredCards.forEach(function(card) {
+		output += `<div class="col-sm-4">
+					<div class="card-container">
+						<h4>${card.name}</h4>
+						<img src="${card.imageUrl}">
+						<a href="card-specific.html?id=${card.id}" class="btn btn-success">View More</a>
+					</div>
+				</div>`;
+	})
+	document.getElementById('cards').innerHTML = output;
 
-   filteredCards.forEach(function(card) {
-		 if(card.name.toLowerCase().startsWith(searchValue.toLowerCase())) {
- 			return true
- 		}
+	if(card.name.toLowerCase().startsWith(searchValue.toLowerCase())) {
+		return true
+	}
 
-})
+	// this will be the card content
+  let output = "No card available";
+
+  // if there is an imageUrl, replace the image content with this
+  if(card.imageUrl) {
+    imageOutput = `<img src="${card.imageUrl}">`;
+  }

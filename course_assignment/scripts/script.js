@@ -10,11 +10,20 @@ function makeCards(json) {
 	// get your cards array from the json object and then loop through them.
 	cardArray.forEach(function(card) {
 
-		console.log(card.name)
+		// set the imageURl to the placeholder
+		let imageUrl = "https://via.placeholder.com/223x310";
+
+		//check if the card has an image
+		if(card.imageUrl) {
+			// it does have an image
+			// set the imageUrl to the one on the card
+			imageUrl = card.imageUrl;
+		}
+
 		output += `<div class="col-sm-4">
 					<div class="card-container">
 						<h4>${card.name}</h4>
-						<img src="${card.imageUrl}">
+						<img src="${imageUrl}">
 						<a href="card-specific.html?id=${card.id}" class="btn btn-success">View More</a>
 					</div>
 				</div>`;
@@ -84,27 +93,28 @@ function makeFilteredCards(json, searchValue) {
 
 	console.log(filteredCards)
 
+	let filteredOutput = "";
+
 	//4. loop over filteredCards and create the html like above
 	filteredCards.forEach(function(card) {
-		output += `<div class="col-sm-4">
+
+		// set the imageURl to the placeholder
+		let imageUrl = "https://via.placeholder.com/223x310";
+
+		//check if the card has an image
+		if(card.imageUrl) {
+			// it does have an image
+			// set the imageUrl to the one on the card
+			imageUrl = card.imageUrl;
+		}
+
+		filteredOutput += `<div class="col-sm-4">
 					<div class="card-container">
 						<h4>${card.name}</h4>
-						<img src="${card.imageUrl}">
+						<img src="${imageUrl}">
 						<a href="card-specific.html?id=${card.id}" class="btn btn-success">View More</a>
 					</div>
 				</div>`;
 	})
-	document.getElementById('cards').innerHTML = output;
-
-	if(card.name.toLowerCase().startsWith(searchValue.toLowerCase())) {
-		return true
-	}
-
-	// this will be the card content
-  let output = "No card available";
-
-  // if there is an imageUrl, replace the image content with this
-  if(card.imageUrl) {
-    imageOutput = `<img src="${card.imageUrl}">`;
-  }
-}	
+	document.getElementById('cards').innerHTML = filteredOutput;
+}

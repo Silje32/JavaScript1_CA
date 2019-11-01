@@ -107,3 +107,4 @@ function makeFilteredCards(json, searchValue) {
   if(card.imageUrl) {
     imageOutput = `<img src="${card.imageUrl}">`;
   }
+}	
